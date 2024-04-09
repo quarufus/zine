@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,8 +31,9 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 4em;
   line-height: 1.1;
+  font-family: Durer;
 }
 
 .card {
@@ -40,10 +41,11 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
   text-align: center;
+  width: 100%;
+  position: absolute;
+  height: 100%;
 }
 
 button {
@@ -76,4 +78,9 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@font-face {
+  font-family: Durer;
+  src: url(./assets/IFDurerDisplay-Regular [tёIeģrа₥  -  @ałI4deşígñеr]  .woff);
 }
