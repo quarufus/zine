@@ -1,20 +1,34 @@
-<script>
+<script lang="ts">
   export let toggleMenu;
+  export let innerWidth: number;
+  export let value: number;
+  let width: number;
+  $: if (innerWidth > 700) {
+    width = 50;
+  } else {
+    width = 100;
+  }
+  function select(num: number) {
+    value = num;
+    toggleMenu();
+  }
 </script>
 
-<div>
-  <button on:click={toggleMenu}>⤬</button>
+<div style="--width: {width}%">
+  <button id="but" on:click={toggleMenu}>Close</button>
   <ul>
-    <li>Home</li>
-    <li>Zines</li>
-    <li>About</li>
-    <li>Contact</li>
+    <li>
+      <button on:click={() => select(0)}>Home</button>
+    </li>
+    <li><button on:click={() => select(1)}>Zines</button></li>
+    <li><button on:click={() => select(2)}>About</button></li>
+    <li><button on:click={() => select(3)}>Contact</button></li>
   </ul>
 </div>
 
 <style>
   div {
-    width: calc(50% - 1px);
+    width: var(--width);
     position: absolute;
     height: 100%;
     background-color: white;
@@ -25,10 +39,9 @@
     list-style: none;
     font-size: 6em;
   }
-  button {
+  #but {
     text-align: right;
-    font-size: 2em;
-    margin: 10px 30px;
+    margin: 21px 20px;
     float: right;
   }
 </style>

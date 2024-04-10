@@ -1,10 +1,9 @@
-<script lang="ts">
-  export let index: number;
+<script>
+  export let index;
   export let next;
   export let previous;
-  export let toggleMenu;
 
-  const title = ["Home", "Zines", "About", "Contact", "End"];
+  const title = ["Home", "Zines", "About", "Contact"];
 </script>
 
 <ul>
@@ -13,10 +12,8 @@
       <button on:click={previous}>&lt- {title[index - 1]}</button>
     {/if}
   </li>
-  <li class="right"><button on:click={toggleMenu}>Menu</button></li>
-  <li class="left">{title[index]}</li>
   <li class="right">
-    {#if index < 4}
+    {#if index < 3}
       <button on:click={next}>{title[index + 1]} -></button>
     {/if}
   </li>
@@ -26,9 +23,12 @@
   ul {
     list-style: none;
     display: flex;
-    border-bottom: 2px solid black;
+    border-top: 2px solid black;
     margin: 0;
     padding: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
   }
   .left {
     text-align: left;
@@ -40,7 +40,7 @@
   li {
     padding: 20px;
     float: left;
-    width: 25%;
+    width: 50%;
     font-weight: 500;
   }
 </style>
